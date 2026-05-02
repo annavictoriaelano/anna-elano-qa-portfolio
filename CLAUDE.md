@@ -130,6 +130,7 @@ Portfolio-specific notes live in:
 Key files:
 - `vercel-portfolio.md` — migration checklist and full content build plan
 - `cv-anna.md` — full CV content including LinkedIn About, skills, and all experience bullets
+
 - `portfolio-to-do-list.md` — master to-do tracker for portfolio, CV, and job hunt
 - `handoff-file.md` — full context handoff for Claude Code sessions
 
