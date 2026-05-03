@@ -1,6 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, FileText, MapPin, Briefcase } from "lucide-react";
+import { Github, Linkedin, FileText } from "lucide-react";
 
 const Index = () => {
   return (
@@ -18,22 +18,10 @@ const Index = () => {
           </div>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in-delay-1">
-            Passionate about building robust test automation frameworks and leveraging 
-            AI-assisted testing to deliver exceptional software quality.
+            I close the gap between what AI can execute and what QA actually requires.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-10 animate-fade-in-delay-2">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted px-4 py-2 rounded-full">
-              <MapPin className="h-4 w-4" />
-              <span>Available for relocation</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted px-4 py-2 rounded-full">
-              <Briefcase className="h-4 w-4" />
-              <span>Open to sponsorship</span>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-delay-3">
+          <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-delay-2">
             <Button asChild size="lg" className="gap-2">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />

@@ -1,3 +1,5 @@
+@CLAUDE.local.md
+
 # CLAUDE.md — Anna Elano QA Portfolio
 
 This file provides guidance to Claude Code when working with this repository.
@@ -6,10 +8,9 @@ This file provides guidance to Claude Code when working with this repository.
 
 ## Project Overview
 
-Personal QA portfolio site. Primary audience: UK tech recruiters and hiring managers.
+Personal QA portfolio site. Primary audience: tech recruiters and hiring managers across UK, Ireland, EU, and the Philippines.
 Purpose: Showcase QA automation work, AI-augmented workflows, and career positioning.
 
-Live URL (pre-Vercel): https://annaelano-qa-portfolio.lovable.app
 Target: Vercel deployment
 
 ---
@@ -43,31 +44,6 @@ Single-page React 18 portfolio app — no backend, no API calls.
 **Styling:** Tailwind CSS with CSS variable-based theming. Dark mode via `class` strategy. Always use `cn()` from `src/lib/utils.ts` for conditional class merging.
 
 **Path alias:** `@/` maps to `src/`.
-
----
-
-## Who I Am
-
-- QA Automation Engineer at HazardCo (via Ascendia Works), Philippines
-- 4+ years in QA across mobile (React Native / Detox) and web (Playwright)
-- Building this portfolio to support a UK job search targeting Skilled Worker visa-sponsored roles
-- SOC code: 2136. Salary floor: £41,700
-- I use AI heavily but govern it — all logic, standards, and guardrails are mine
-- This portfolio is the public face of that work
-
----
-
-## How to Work with Me
-
-- **Be concise and direct.** No fluff, no theory unless I ask.
-- **Short paced steps.** Wait for me to complete each step before continuing. Never dump end-to-end instructions unless I explicitly ask.
-- **Acknowledge mistakes before fixing** — explain what went wrong briefly.
-- **Don't agree just to please.** Give honest critique. Push back if my approach has issues.
-- **Ask clarifying questions** when context is unclear. Don't assume and get it wrong.
-- **Flag assumptions** when you make them so I can correct early.
-- **Don't repeat suggestions I've already rejected.**
-- **If you ask me a question, STOP.** Do not proceed, do not start work while waiting. Wait for my response.
-- **Never rush me to a conclusion.** Support the investigation, don't cut it short.
 
 ---
 
@@ -110,34 +86,3 @@ Single-page React 18 portfolio app — no backend, no API calls.
 4. **If a blocker is detected, STOP ALL WORK and discuss.** No further background tasks. Report the blocker. Wait for Anna's decision.
 5. **ONE active command at a time.** Wait for completion, parse results, then decide next step.
 6. **If Anna intervenes** (closes server, kills process, etc.) — assume ALL previous work is invalid. Start completely fresh.
-
----
-
-## Obsidian Vault
-
-Anna's second brain. Path:
-
-```
-/Users/annaelano/Documents/ase-workspace/Obsidian Vaults/HazardCo QA Team
-```
-
-Portfolio-specific notes live in:
-
-```
-/Users/annaelano/Documents/ase-workspace/Obsidian Vaults/HazardCo QA Team/xannavictoriaelano/
-```
-
-Key files:
-- `vercel-portfolio.md` — migration checklist and full content build plan
-- `cv-anna.md` — full CV content including LinkedIn About, skills, and all experience bullets
-
-- `portfolio-to-do-list.md` — master to-do tracker for portfolio, CV, and job hunt
-- `handoff-file.md` — full context handoff for Claude Code sessions
-
-### When to Read
-- **Before starting a session:** Read `portfolio-to-do-list.md` for current priorities
-- **For full context:** Read `handoff-file.md`
-
-### When to Write
-- **Ad-hoc writes** — preview full content first, wait for approval.
-- **Never delete** — ask Anna first.
