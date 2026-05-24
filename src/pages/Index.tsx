@@ -23,22 +23,20 @@ const Index = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-delay-2">
             <Button asChild size="lg" className="gap-2">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/anna-victoria-elano" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />
                 LinkedIn
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="gap-2">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/annavictoriaelano" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5" />
                 GitHub
               </a>
             </Button>
-            <Button asChild variant="secondary" size="lg" className="gap-2">
-              <a href="/resume.pdf" download>
-                <FileText className="h-5 w-5" />
-                Resume
-              </a>
+            <Button variant="secondary" size="lg" className="gap-2 opacity-50 cursor-not-allowed" disabled title="Coming soon">
+              <FileText className="h-5 w-5" />
+              Resume
             </Button>
           </div>
         </div>

@@ -65,6 +65,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       keyframes: {
