@@ -27,3 +27,6 @@ dist-ssr
 # Local Claude Code config
 CLAUDE.local.md
 .claude/settings.local.json
+
+# Local design iteration screenshots
+screenshots/
