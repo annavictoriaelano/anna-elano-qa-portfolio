@@ -6,8 +6,8 @@ import { Mail, Linkedin, Github, Send } from "lucide-react";
 const contactLinks = [
   {
     name: "Email",
-    value: "anna.elano@email.com",
-    href: "mailto:anna.elano@email.com",
+    value: "annavictoriaelano@gmail.com",
+    href: "mailto:annavictoriaelano@gmail.com",
     icon: Mail,
     description: "Best way to reach me",
   },
@@ -74,7 +74,7 @@ const Contact = () => {
 
           <div className="mt-12 text-center animate-fade-in-delay-2">
             <Button asChild size="lg" className="gap-2">
-              <a href="mailto:anna.elano@email.com">
+              <a href="mailto:annavictoriaelano@gmail.com">
                 <Send className="h-5 w-5" />
                 Send me an email
               </a>
