@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -18,6 +19,15 @@ interface ProjectDetailModalProps {
   whatItAchieves: string[];
 }
 
+function SectionHeading({ children }: { children: ReactNode }) {
+  return (
+    <h3 className="flex items-center gap-2.5 text-base font-semibold text-foreground">
+      <span className="inline-block w-1 h-5 rounded-full bg-ring shrink-0" />
+      {children}
+    </h3>
+  );
+}
+
 export function ProjectDetailModal({
   open,
   onOpenChange,
@@ -29,11 +39,11 @@ export function ProjectDetailModal({
 }: ProjectDetailModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl">{title}</DialogTitle>
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+        <DialogHeader className="px-8 pt-8 pb-6 border-b">
+          <DialogTitle className="text-3xl font-bold">{title}</DialogTitle>
           <DialogDescription asChild>
-            <div className="flex flex-wrap gap-1.5 pt-1">
+            <div className="flex flex-wrap gap-1.5 pt-3">
               {tech.split(" · ").map((t) => (
                 <Badge key={t} variant="secondary" className="text-xs font-mono">
                   {t}
@@ -43,41 +53,37 @@ export function ProjectDetailModal({
           </DialogDescription>
         </DialogHeader>
 
-        {diagram && (
-          <div className="mt-2">
-            <h3 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">
-              Workflow
-            </h3>
-            {diagram}
+        <div className="px-8 py-8 space-y-8">
+          {diagram && (
+            <div>
+              <SectionHeading>Workflow</SectionHeading>
+              <div className="mt-4">{diagram}</div>
+            </div>
+          )}
+
+          <div>
+            <SectionHeading>What it does</SectionHeading>
+            <ul className="mt-4 space-y-3">
+              {whatItDoes.map((item, i) => (
+                <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                  <ArrowRight className="h-4 w-4 text-ring mt-0.5 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-        )}
 
-        <div className="mt-2">
-          <h3 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">
-            What it does
-          </h3>
-          <ul className="space-y-2">
-            {whatItDoes.map((item, i) => (
-              <li key={i} className="flex gap-2 text-sm text-muted-foreground leading-relaxed">
-                <span className="text-primary mt-0.5 shrink-0">&#8226;</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-2">
-          <h3 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">
-            What it achieves
-          </h3>
-          <ul className="space-y-2">
-            {whatItAchieves.map((item, i) => (
-              <li key={i} className="flex gap-2 text-sm text-muted-foreground leading-relaxed">
-                <span className="text-primary mt-0.5 shrink-0">&#8226;</span>
-                {item}
-              </li>
-            ))}
-          </ul>
+          <div className="rounded-xl bg-accent/40 p-6">
+            <SectionHeading>What it achieves</SectionHeading>
+            <ul className="mt-4 space-y-3">
+              {whatItAchieves.map((item, i) => (
+                <li key={i} className="flex gap-3 text-sm text-foreground/80 leading-relaxed">
+                  <CheckCircle2 className="h-4 w-4 text-ring mt-0.5 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

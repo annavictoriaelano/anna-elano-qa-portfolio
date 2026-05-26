@@ -24,7 +24,7 @@ const nodes: Node[] = [
   {
     id: "connector",
     type: "flowNode",
-    position: { x: 0, y: 120 },
+    position: { x: 0, y: 150 },
     data: {
       label: "AIO Connector",
       subtitle: "9 API operations",
@@ -34,7 +34,7 @@ const nodes: Node[] = [
   {
     id: "gate",
     type: "flowNode",
-    position: { x: 0, y: 240 },
+    position: { x: 0, y: 300 },
     data: {
       label: "QA Review Gate",
       subtitle: "Nothing auto-writes",
@@ -44,7 +44,7 @@ const nodes: Node[] = [
   {
     id: "claude",
     type: "flowNode",
-    position: { x: -160, y: 360 },
+    position: { x: -190, y: 460 },
     data: {
       label: "Claude Code Skills",
       subtitle: "Script creation, review, execution",
@@ -54,7 +54,7 @@ const nodes: Node[] = [
   {
     id: "scripts",
     type: "flowNode",
-    position: { x: 160, y: 360 },
+    position: { x: 190, y: 460 },
     data: {
       label: "Test Scripts & POMs",
       subtitle: "Detox / Playwright",
@@ -107,7 +107,7 @@ const edges: Edge[] = [
 
 export function AioConnectorFlow() {
   return (
-    <div className="w-full h-[380px] rounded-lg border bg-muted/30">
+    <div className="w-full h-[580px] rounded-lg border bg-muted/30">
       <ReactFlow
         nodes={nodes}
         edges={edges}
