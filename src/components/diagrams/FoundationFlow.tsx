@@ -2,7 +2,6 @@ import {
   ReactFlow,
   type Node,
   type Edge,
-  Position,
   MarkerType,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
@@ -12,102 +11,94 @@ const nodeTypes = { flowNode: FlowNode };
 
 const nodes: Node[] = [
   {
-    id: "aio",
+    id: "knowledge",
     type: "flowNode",
-    position: { x: 0, y: 0 },
-    data: {
-      label: "Jira AIO TCMS",
-      subtitle: "Source of truth",
-      variant: "source",
-    },
+    position: { x: -220, y: 0 },
+    data: { label: "Knowledge Base", variant: "source" },
   },
   {
-    id: "connector",
+    id: "skills",
+    type: "flowNode",
+    position: { x: 0, y: 0 },
+    data: { label: "Skills & Memory", variant: "source" },
+  },
+  {
+    id: "tooling",
+    type: "flowNode",
+    position: { x: 220, y: 0 },
+    data: { label: "Integrated Tooling", variant: "source" },
+  },
+  {
+    id: "ai",
     type: "flowNode",
     position: { x: 0, y: 150 },
-    data: {
-      label: "AIO Connector",
-      subtitle: "9 API operations",
-      variant: "primary",
-    },
+    data: { label: "Claude Code", variant: "primary" },
   },
   {
     id: "gate",
     type: "flowNode",
     position: { x: 0, y: 300 },
-    data: {
-      label: "QA Review Gate",
-      subtitle: "Nothing auto-writes",
-      variant: "gate",
-    },
+    data: { label: "QA Governance Gate", variant: "gate" },
   },
   {
-    id: "claude",
+    id: "output",
     type: "flowNode",
-    position: { x: -190, y: 460 },
-    data: {
-      label: "Claude Code Skills",
-      subtitle: "Script creation, review, execution",
-      variant: "default",
-    },
-  },
-  {
-    id: "scripts",
-    type: "flowNode",
-    position: { x: 190, y: 460 },
-    data: {
-      label: "Test Scripts & POMs",
-      subtitle: "Detox / Playwright",
-      variant: "default",
-    },
+    position: { x: 0, y: 440 },
+    data: { label: "QA Output", variant: "default" },
   },
 ];
 
 const edges: Edge[] = [
   {
-    id: "aio-connector",
-    source: "aio",
-    target: "connector",
+    id: "knowledge-ai",
+    source: "knowledge",
+    target: "ai",
     type: "smoothstep",
     animated: true,
-    label: "Read / Write",
     style: { stroke: "hsl(32 95% 44%)" },
     markerEnd: { type: MarkerType.ArrowClosed, color: "hsl(32 95% 44%)" },
-    labelStyle: { fontSize: 11, fill: "hsl(215 16% 47%)" },
   },
   {
-    id: "connector-gate",
-    source: "connector",
+    id: "skills-ai",
+    source: "skills",
+    target: "ai",
+    type: "smoothstep",
+    animated: true,
+    style: { stroke: "hsl(32 95% 44%)" },
+    markerEnd: { type: MarkerType.ArrowClosed, color: "hsl(32 95% 44%)" },
+  },
+  {
+    id: "tooling-ai",
+    source: "tooling",
+    target: "ai",
+    type: "smoothstep",
+    animated: true,
+    style: { stroke: "hsl(32 95% 44%)" },
+    markerEnd: { type: MarkerType.ArrowClosed, color: "hsl(32 95% 44%)" },
+  },
+  {
+    id: "ai-gate",
+    source: "ai",
     target: "gate",
     type: "smoothstep",
     style: { stroke: "hsl(32 95% 44%)" },
     markerEnd: { type: MarkerType.ArrowClosed, color: "hsl(32 95% 44%)" },
   },
   {
-    id: "gate-claude",
+    id: "gate-output",
     source: "gate",
-    target: "claude",
+    target: "output",
     type: "smoothstep",
     label: "Approved",
     style: { stroke: "hsl(142 50% 38%)" },
     markerEnd: { type: MarkerType.ArrowClosed, color: "hsl(142 50% 38%)" },
     labelStyle: { fontSize: 11, fill: "hsl(142 50% 38%)" },
   },
-  {
-    id: "gate-scripts",
-    source: "gate",
-    target: "scripts",
-    type: "smoothstep",
-    label: "Triggers",
-    style: { stroke: "hsl(142 50% 38%)" },
-    markerEnd: { type: MarkerType.ArrowClosed, color: "hsl(142 50% 38%)" },
-    labelStyle: { fontSize: 11, fill: "hsl(142 50% 38%)" },
-  },
 ];
 
-export function AioConnectorFlow() {
+export function FoundationFlow() {
   return (
-    <div className="w-full h-[580px] rounded-lg border bg-muted/30">
+    <div className="w-full h-[520px] rounded-lg border bg-muted/30">
       <ReactFlow
         nodes={nodes}
         edges={edges}
