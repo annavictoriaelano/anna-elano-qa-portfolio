@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { LucideIcon, ArrowRight, Clock, Github } from "lucide-react";
+import { LucideIcon, ArrowRight, Clock, Github, ExternalLink } from "lucide-react";
+import type { ArticleContent } from "./ArticleModal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -13,11 +14,13 @@ export interface ProjectCardProps {
   status?: string;
   placeholder?: boolean;
   repoUrl?: string;
+  liveUrl?: string;
   highlightLabel?: string;
   onClick?: () => void;
   diagram?: ReactNode;
   whatItDoes?: string[];
   whatItAchieves?: string[];
+  article?: ArticleContent;
 }
 
 export function ProjectCard({
@@ -29,6 +32,7 @@ export function ProjectCard({
   status,
   placeholder,
   repoUrl,
+  liveUrl,
   onClick,
 }: ProjectCardProps) {
   if (placeholder) {
@@ -147,18 +151,32 @@ export function ProjectCard({
                 View details
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
               </div>
-              {repoUrl && (
-                <a
-                  href={repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Github className="h-3.5 w-3.5" />
-                  Repository
-                </a>
-              )}
+              <div className="flex items-center gap-3">
+                {liveUrl && (
+                  <a
+                    href={liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" />
+                    Live
+                  </a>
+                )}
+                {repoUrl && (
+                  <a
+                    href={repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Github className="h-3.5 w-3.5" />
+                    Repository
+                  </a>
+                )}
+              </div>
             </div>
           ) : repoUrl ? (
             <a

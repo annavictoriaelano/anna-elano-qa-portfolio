@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Layout } from "@/components/Layout";
 import { ProjectCard, type ProjectCardProps } from "@/components/ProjectCard";
 import { ProjectDetailModal } from "@/components/ProjectDetailModal";
+import { ArticleModal } from "@/components/ArticleModal";
 import { AioConnectorFlow } from "@/components/diagrams/AioConnectorFlow";
 import { FoundationFlow } from "@/components/diagrams/FoundationFlow";
 import { SkillFlow } from "@/components/diagrams/SkillFlow";
@@ -14,13 +15,12 @@ import {
   Brain,
   Search,
   Database,
-  ShieldCheck,
   ListChecks,
   Terminal,
   Code,
   ArrowRight,
   GitBranch,
-  BookOpen,
+  GitMerge,
   RefreshCw,
   ClipboardList,
   Rocket,
@@ -30,6 +30,7 @@ import {
   Zap,
   Lightbulb,
   ShoppingCart,
+  Monitor,
 } from "lucide-react";
 
 /* ── helpers ─────────────────────────────────────────── */
@@ -130,10 +131,10 @@ const testAutomation: ProjectCardProps[] = [
     diagram: (
       <MetricsHighlight
         metrics={[
-          { value: "TBA%", label: "Faster Regression" },
+          { value: "~40%", label: "Faster Regression" },
           { value: "~5 wks", label: "Built From Zero" },
           { value: "~70%", label: "Faster Sweeps" },
-          { value: "16", label: "Modules Covered" },
+          { value: "9", label: "Modules Covered" },
         ]}
       />
     ),
@@ -155,31 +156,31 @@ const testAutomation: ProjectCardProps[] = [
   {
     title: "Web Automation for a SaaS Company",
     summary:
-      "Rebuilt an existing test suite from inline locators to Page Object Model. Unified reporting across mobile and web platforms.",
+      "Rebuilding an existing test suite from inline locators to Page Object Model. Unified reporting across mobile and web platforms.",
     icon: Globe,
     highlightLabel: "Key Results",
     diagram: (
       <MetricsHighlight
         metrics={[
-          { value: "200+", label: "Specs Refactored" },
-          { value: "620+", label: "Tests Under POM" },
+          { value: "200+", label: "Specs Assessed" },
+          { value: "620+", label: "Tests Scoped" },
           { value: "4", label: "AI Skills Built" },
           { value: "2", label: "Platforms Unified" },
         ]}
       />
     ),
     whatItDoes: [
-      "Refactored 200+ existing spec files from inline locators to structured Page Object Model architecture",
-      "Applied the same foundation patterns from mobile automation: SME knowledge capture, pattern library compounding, and skill-based AI governance",
+      "Assessed 200+ existing spec files, identified structural gaps, and delivered a full refactor plan for migration to Page Object Model architecture, currently in execution",
+      "Applying the same foundation patterns from mobile automation: SME knowledge capture, pattern library compounding, and skill-based AI governance",
       "4 platform-specific AI skills scaffolded for knowledge build, review, test case creation, and execution",
-      "Results feed into Jira AIO cycles and Allure Reports, creating unified cross-platform test reporting",
       "AIO Connector integration ported from mobile, ensuring consistent TCMS workflow across both platforms",
+      "Results feed into Jira AIO cycles and Allure Reports for unified cross-platform test reporting",
     ],
     whatItAchieves: [
-      "Refactored from zero abstraction to structured POM, reducing maintenance cost for 620+ existing tests",
+      "Structural assessment complete: 620+ tests scoped for POM migration, gap analysis delivered, refactor in execution",
       "Unified reporting across mobile and web through shared Jira AIO integration",
       "Foundation patterns proven portable: same architecture, same discipline, different platform, same results",
-      "Automation foundation ready for team-wide scaling",
+      "Automation foundation being built for team-wide scaling",
     ],
   },
   {
@@ -215,20 +216,46 @@ const testAutomation: ProjectCardProps[] = [
     ],
   },
   {
-    title: "TBA Web Automation",
+    title: "Technical Source Code Contributions",
     summary:
-      "Playwright project with deeper focus on API testing and performance validation. Stack and scope to be announced.",
-    icon: Globe,
-    status: "Planned",
+      "Delivered source-side changes to unblock automation. Proposed, designed, coordinated with developers, and delivered each fix with impact evidence.",
+    icon: Code,
     whatItDoes: [
-      "API testing with Playwright's request context: endpoint validation, response schema checks, and integration with UI flows",
-      "Performance benchmarks: page load metrics, time-to-interactive, and resource timing captured alongside functional tests",
-      "Scope and target application to be announced",
+      "Fast Login via launch args (OST-467): bypassed UI login flow entirely, unblocking multi-account testing across multiple modules",
+      "Fast Scan-In via launch args (OST-485): reduced scan-in setup from 60-90 seconds per test to near-zero",
+      "FTMSlideSelector testID passthrough: single-line fix that unblocked 24 cascade failures across dependent tests",
+      "Eye icon and keyboard accessory testIDs: unblocked Login and Registration automation that was stalled on missing element identifiers",
+      "Dashboard and CreateScreen testIDs: unblocked virtualized list scrolling across affected modules",
     ],
     whatItAchieves: [
-      "Extends portfolio coverage beyond UI automation into API and performance layers",
-      "Demonstrates breadth across the full testing pyramid: UI, API, and performance",
-      "Details to be announced",
+      "Each contribution followed full ownership: identified the gap, proposed the solution, coordinated with the development team, and delivered with impact evidence",
+      "Fast Login and Fast Scan-In became reusable launch arg patterns across multiple modules, compounding time savings beyond the original fix",
+      "A single-line testID passthrough unblocked 24 cascade failures - evidence that the highest-leverage QA work is not always in the test files",
+      "Demonstrates QA contributing directly to the codebase, not just testing it",
+    ],
+  },
+];
+
+const liveBuilds: ProjectCardProps[] = [
+  {
+    title: "QA Console - AI-Augmented Test Management Web Application",
+    summary:
+      "Building a production-deployed AI-augmented test management platform to demonstrate end-to-end ownership of the AI-augmented QA pipeline.",
+    icon: Monitor,
+    status: "In Development",
+    liveUrl: "https://qa-console.vercel.app",
+    repoUrl: "https://github.com/annavictoriaelano/qa-console",
+    whatItDoes: [
+      "Designed the full-stack architecture: Neon serverless Postgres, Next.js API routes, JWT authentication, React and Tailwind frontend",
+      "Built the Test Case Library with module tree navigation, inline editing, search, pagination, and bulk actions; seeded with 500+ test cases from a live test suite",
+      "Designed an MCP server layer enabling Claude to drive the webapp from outside, creating an AI-to-TCMS orchestration loop without a third-party API dependency",
+      "Deployed to Vercel production; actively adding features during off hours",
+    ],
+    whatItAchieves: [
+      "Proves end-to-end full-stack ownership beyond test automation: architecture, database design, authentication, and deployment",
+      "MCP server layer enables Claude to operate the platform directly, removing a third-party API dependency entirely",
+      "Seeded with 500+ test cases from a live suite - demonstrates the system handles real production-scale data from the start",
+      "Live and continuously expanding at qa-console.vercel.app",
     ],
   },
 ];
@@ -433,89 +460,52 @@ const aiPipeline: ProjectCardProps[] = [
       "The same review discipline transfers to any product. If AI is writing tests, something needs to verify the tests match reality.",
     ],
   },
-  {
-    title: "Technical Source Contributions",
-    summary:
-      "Production bugs, dev proposals, planning docs, and release RCAs",
-    icon: Code,
-    placeholder: true,
-  },
 ];
 
 const processMethodology: ProjectCardProps[] = [
   {
-    title: "Vault Governance",
+    title: "Vault Governance System",
     summary:
-      "Single point of control for all QA knowledge. Enforces consistent structure and captures learnings in real-time.",
+      "Session discipline, weekly health checks, and lifecycle governance keeping the QA knowledge base accurate and compounding over time.",
     icon: Database,
     diagram: (
       <SkillFlow
-        height={420}
+        height={460}
         nodes={[
-          { id: "start", label: "Session Start", variant: "source", x: 0, y: 0 },
-          { id: "capture", label: "Mid-Session Capture", variant: "primary", x: 0, y: 130 },
-          { id: "closeout", label: "Closeout Review", variant: "gate", x: 0, y: 260 },
-          { id: "updated", label: "Knowledge Updated", variant: "default", x: 0, y: 380 },
+          { id: "session", label: "Session Start", variant: "source", x: -140, y: 0 },
+          { id: "capture", label: "Mid-Session Capture", variant: "primary", x: -140, y: 130 },
+          { id: "closeout", label: "Closeout Review", variant: "gate", x: -140, y: 260 },
+          { id: "weekly", label: "Weekly Trigger", variant: "source", x: 140, y: 0 },
+          { id: "audit", label: "7 Audit Checks", variant: "primary", x: 140, y: 130 },
+          { id: "findings", label: "Findings Report", variant: "gate", x: 140, y: 260 },
+          { id: "knowledge", label: "Knowledge Base", variant: "default", x: 0, y: 400 },
         ]}
         edges={[
-          { from: "start", to: "capture", animated: true },
+          { from: "session", to: "capture", animated: true },
           { from: "capture", to: "closeout" },
-          { from: "closeout", to: "updated", label: "Verified", color: "green" },
+          { from: "closeout", to: "knowledge", label: "Verified", color: "green" },
+          { from: "weekly", to: "audit", animated: true },
+          { from: "audit", to: "findings" },
+          { from: "findings", to: "knowledge", label: "Fixed", color: "green" },
         ]}
       />
     ),
     whatItDoes: [
       "Enforces consistent structure, naming, and cross-linking for all QA knowledge: patterns, bugs, SME notes, session logs, and progress tracking",
-      "Three-phase session discipline: context load at start, real-time capture during work, and closeout with mandatory knowledge review",
-      "Mid-session capture is non-negotiable. When a new pattern is discovered or a bug is found, it is documented immediately, not batched to the end.",
+      "Three-phase session discipline: context load at start, real-time mid-session capture, and closeout with mandatory knowledge review. Mid-session capture is non-negotiable.",
       "Every new artifact is cross-linked in three places: the index, the consuming document, and the session log. Orphaned knowledge is structurally impossible.",
+      "Weekly health check runs 7 automated audits: stale knowledge notes, orphaned patterns, broken cross-links, unresolved bugs, missing session logs, naming inconsistencies, and stale tasks",
+      "Health checks are read-only. Surfaces findings; never auto-patches. QA reviews the report and decides what to fix.",
+      "Catches drift that builds across sessions: a pattern referenced in three places but renamed in one, a bug marked resolved but still in the workaround list",
     ],
     whatItAchieves: [
       "Knowledge compounds instead of decaying. Each session's learnings are available to every future session.",
+      "Prevents silent knowledge decay. Problems that would otherwise surface as wrong tests or missed coverage get flagged weekly before they compound.",
+      "Average 5-10 health check findings per weekly run. Each finding fixed prevents a downstream error.",
       "Onboarding cost drops: new QA reads the vault, not a person's head. The knowledge base is the team's memory, not an individual's.",
       "Pattern reuse accelerates over time. The more patterns documented, the less debugging required. Each session is faster than the last.",
       "If the QA engineer leaves, the knowledge stays. Bus factor addressed by design, not by hope.",
     ],
-  },
-  {
-    title: "Vault Health Check",
-    summary:
-      "Weekly audit catching drift that per-session checks miss. Read-only, surfaces inconsistencies before they compound.",
-    icon: ShieldCheck,
-    diagram: (
-      <SkillFlow
-        height={420}
-        nodes={[
-          { id: "trigger", label: "Weekly Trigger", variant: "source", x: 0, y: 0 },
-          { id: "checks", label: "7 Audit Checks", variant: "primary", x: 0, y: 130 },
-          { id: "report", label: "Findings Report", variant: "gate", x: 0, y: 260 },
-          { id: "review", label: "QA Reviews + Fixes", variant: "default", x: 0, y: 380 },
-        ]}
-        edges={[
-          { from: "trigger", to: "checks", animated: true },
-          { from: "checks", to: "report" },
-          { from: "report", to: "review", label: "Flagged", color: "green" },
-        ]}
-      />
-    ),
-    whatItDoes: [
-      "Runs 7 automated checks weekly: stale knowledge notes, orphaned patterns, broken cross-links, unresolved bugs, missing session logs, naming inconsistencies, and stale tasks",
-      "Read-only. Surfaces findings; never auto-patches. QA reviews the report and decides what to fix.",
-      "Catches problems that build up across sessions: a pattern referenced in three places but renamed in one, a bug marked resolved but still in the workaround list",
-      "Complements per-session closeout. Session closeout catches what changed today. Health check catches what drifted across weeks.",
-    ],
-    whatItAchieves: [
-      "Prevents silent knowledge decay. Problems that would otherwise surface as wrong tests or missed coverage get flagged early.",
-      "Average 5-10 findings per weekly run. Each finding fixed prevents a downstream error.",
-      "Keeps the knowledge base trustworthy. If the team relies on the vault, the vault must be accurate. This is how you ensure that.",
-    ],
-  },
-  {
-    title: "Vault Knowledge Lifecycle",
-    summary:
-      "Session start context, mid-session capture, closeout delta pass",
-    icon: BookOpen,
-    placeholder: true,
   },
   {
     title: "SME Knowledge Cycle",
@@ -550,46 +540,113 @@ const perspectives: ProjectCardProps[] = [
   {
     title: "Write Broadly, Regress Selectively",
     summary:
-      "Position paper: AI lowered the cost of writing tests, not the cost of broken pipelines. Defines four graduation criteria for regression promotion.",
-    // tech: "QA Strategy · Automation Philosophy · Position Paper",
+      "AI lowered the cost of writing tests, not the cost of broken pipelines. Four graduation criteria for deciding what earns a place in regression.",
     icon: FileText,
     metric: { value: "4", label: "Graduation Criteria" },
-    whatItDoes: [
-      "Defines the principle: AI removed the cost of writing tests, not the cost of a broken pipeline",
-      "Separates feature automation (write everything, AI makes this cheap) from regression automation (only what your environment can run reliably with a clean signal)",
-      "Establishes four graduation criteria for promoting feature scripts to regression: environment stable, test data managed, consistent pass rate, feature released",
-      "Provides ready-to-use meeting language for defending regression scope decisions",
-    ],
-    whatItAchieves: [
-      "Future regression scope conversations reference the document rather than relitigating the principle",
-      "Team has a shared answer to 'is this ready for regression?' that does not depend on one person being in the room",
-      "Prevented overengineering: automating everything because 'there is AI' is explicitly called out as an anti-pattern with a real cautionary example",
-      "Positions QA judgment as the differentiator in AI-augmented orgs, not typing speed",
-    ],
+    article: {
+      intro:
+        "AI lowered the cost of writing tests. It didn't lower the cost of a broken regression pipeline. Conflating those two things produces the most common AI-augmented QA failure: automate everything, then watch the regression suite become impossible to trust.",
+      paragraphs: [
+        "Before AI, the bottleneck was time. Writing a thorough feature test set took days. Scripting took longer. Teams wrote fewer tests and covered only the highest-risk paths. AI changed that fast. The cost of generating a test case dropped to near zero. The scripting cost followed. The question stopped being 'what can we afford to test?' and became 'what should we test?'",
+        "Two layers, two different answers. Feature automation - tests written during development to verify a ticket or module - should be comprehensive. Write broadly. If a test case exists, write the script. AI makes it cheap. Regression is different. Regression is a signal, and signals only work when they're clean. A flaky regression suite isn't a safety net. It's noise.",
+        "That distinction produced four graduation criteria for promoting a script into regression. Stable environment - consistent results, not environment noise. Managed test data - one test can't corrupt the next. Consistent pass rate - the script earns its place. Released feature - automating active development means automating a moving target. Until all four are met, the script stays in feature automation. It provides coverage. It doesn't belong in regression yet.",
+        "The cost of generating a test dropped. The cost of a flaky regression suite didn't. An 800-test pipeline where 200 are unreliable isn't an 800-test pipeline. It's 600 tests dragging 200 sources of noise. Teams that automate everything into regression and wonder why they can't trust their results skipped the question that matters: is this test ready to be a signal?",
+      ],
+    },
   },
   {
     title: "SME Knowledge as Canonical Source",
     summary:
-      "Why the knowledge base is the foundation, not the scripts",
-    // tech: "QA Assessment · Knowledge Management",
+      "What separates AI generating generic tests from AI generating tests that match your product, your users, and your edge cases.",
     icon: Library,
-    placeholder: true,
+    article: {
+      intro:
+        "An AI that can test software and an AI that can test your software are not the same thing. The knowledge base is the gap between them.",
+      paragraphs: [
+        "When AI reads a codebase, it learns what elements exist at a technical level. It can identify a button, understand its label, infer that pressing it submits a form. What it can't derive from code is context: who's supposed to press that button, under which subscription tier, in which locale, after which prior actions. That context lives in SME notes built from live app exploration, real support tickets, and accumulated understanding of how actual customers use the product.",
+        "Without the knowledge base, AI generates tests that are syntactically correct and domain-blind. A test asserts that a report generates successfully. It doesn't know that report type only applies to a specific country and tier, requires a specific project state, and has a known quirk when the user hasn't set a default template. The test passes. It tests the wrong configuration. Coverage looks fine. The signal is wrong.",
+        "An SME knowledge base changes what AI works from. Instead of inferring intent from code, it draws from a structured document: screen inventory, user role matrices, permission boundaries, known limitations, edge cases from production. The result is tests that reflect how the product actually behaves, not how the codebase suggests it might. The gap matters most at the edges - rare role combinations, locale-specific flags, known bug workarounds a test should account for instead of accidentally validating.",
+        "The knowledge base compounds. Individual sessions don't. Each feature documented once gets reused by every test generation, review, and debug cycle that follows. Without it, every session starts from the same baseline - general knowledge, product-blind guesses, and whatever is derivable from code alone.",
+      ],
+    },
   },
   {
     title: "Skill Routing Discipline",
     summary:
-      "RCA-driven enforcement when AI bypasses the skill pathways",
-    // tech: "QA Assessment · AI Governance",
+      "Why deterministic skills are the difference between a recoverable AI system and an unpredictable one. RCA-driven enforcement when the pathway is bypassed.",
     icon: Shield,
-    placeholder: true,
+    article: {
+      intro:
+        "The difference between useful AI and unpredictable AI usually isn't the model. It's whether the model has a defined procedure to follow.",
+      paragraphs: [
+        "A skill is a deterministic procedure: a slash command with explicit steps, entry conditions, exit criteria, and handoff rules. When AI operates through a skill, its behaviour is predictable and auditable. When it operates without one, it improvises. Improvisation in a test suite compounds fast in the wrong direction - inconsistent selectors, incorrect assertions, scope-expanding changes without review, patterns that contradict what the team already established.",
+        "Skill routing discipline means treating any deviation as a recoverable event with a specific cause, not a random failure. Deviations almost always trace back to three things: the skill wasn't triggered because the entry condition was ambiguous; the skill was triggered but had no instruction for the current situation; or the session started without loading the context the skill depends on. All three are fixable. Random AI behaviour isn't.",
+        "Each deviation becomes a rule update - not a fix for the instance, but a change that closes the class of problem. If AI skipped the review stage because nothing explicitly said it was mandatory before writing to file, the rule becomes: review is always mandatory before writing to file, no exceptions. The next session inherits that. The deviation doesn't recur.",
+        "A QA system that only works when the right person is paying close attention is fragile. A QA system where deviations surface a fixable cause, which becomes a permanent rule, gets more reliable with each session. The compounding goes in the right direction.",
+      ],
+    },
   },
   {
     title: "Mid-Session Capture Beats Batching",
     summary:
-      "Real-time capture beats batch documentation, compounds over time",
-    // tech: "QA Assessment · Vault Discipline",
+      "Real-time capture at the moment of discovery is the only way a knowledge base compounds. Batching to end-of-session means most discoveries never get written.",
     icon: Zap,
-    placeholder: true,
+    article: {
+      intro:
+        "The pattern library doesn't grow by itself. It grows one captured discovery at a time, right when the discovery happens. Batching it to closeout is the fastest way to ensure most of it never gets written.",
+      paragraphs: [
+        "The argument for batching is efficiency: finish the task, document later. It doesn't work. Closeout is the worst time to reconstruct debugging. The exact selector that was flaky, the timing constraint that was the real issue, why a particular workaround works and not the obvious one - all of it is clearest the moment the problem is solved. An hour later, most of it's gone.",
+        "Mid-session capture means writing the pattern down right after solving it, before moving to the next task. The documentation is different in quality. It includes the detail that makes a pattern reusable: the exact condition that triggers the timing issue, the workaround and why it works - not just what it does - the edge case the obvious solution fails on. Batched documentation produces 'fixed the flaky scroll test' with nothing transferable. Real-time capture produces something the next person can actually apply.",
+        "The compounding is the point. A session that batches contributes nothing reusable to the next. A session that captures in real time contributes every discovery. Over months, the gap between a team that captures consistently and one that batches is a pattern library that makes debugging faster each week versus one that starts from the same baseline every time.",
+      ],
+    },
+  },
+  {
+    title: "The Foundation Before the Pipeline",
+    summary:
+      "AI multiplies what you already have, in either direction. Why building the stable system first is not a delay - it is the strategy.",
+    icon: Layers,
+    article: {
+      intro:
+        "AI multiplies what you already have. That works both ways. Teams that discover this too late are usually the ones who built the pipeline before building what it was supposed to run on.",
+      paragraphs: [
+        "An AI-augmented QA system has five foundation layers: a knowledge base giving AI accurate ground truth about the product; deterministic skills defining what AI does at each stage; behavioural rules encoding lessons from past deviations so they don't recur; test conventions ensuring output is consistent regardless of which session produced it; and integrated tooling making results visible to the team. Skip one and what you build on top becomes unreliable.",
+        "The temptation is to start automating immediately. The speed gains are visible. But AI generating test cases against an undocumented product produces cases that are structurally sound and contextually wrong. Scripts written without defined conventions differ across modules because nothing told it which pattern to use. Without behavioural rules, AI repeats the same class of mistake until someone catches it. The pipeline runs. The output isn't trustworthy.",
+        "Most of the real work in an AI-augmented QA system goes into the foundations, not the pipeline. The pipeline builds quickly once the foundation is in place. The knowledge base takes time. The skills take iteration. The conventions take thought. Skipping this to start producing output is the kind of shortcut that shows up later as rework: rescripting modules where AI used wrong patterns, correcting test cases that passed review because the reviewer also lacked context, debugging failures that trace back to a skill nobody defined precisely.",
+      ],
+    },
+  },
+  {
+    title: "QA Owns the Release Gate",
+    summary:
+      "A release process without a QA-owned go/no-go is an informal process dressed as a process. On redesigning the release lifecycle from the QA layer up.",
+    icon: Rocket,
+    article: {
+      intro:
+        "A release process without a clearly owned go/no-go isn't a release process. It's a set of activities that usually ends in someone deploying and hoping for the best.",
+      paragraphs: [
+        "The symptoms are recognisable: no fixed cadence so every release is a negotiation, scope defined by a metadata field developers update inconsistently, QA finding out what's in the release while regression is already running, tickets pushed to staging without clearing dev first, a go/no-go that belongs to everyone in general and no one in particular. None of these are catastrophic alone. Together they create a release cycle where QA operates with incomplete information, under informal pressure, without a clear moment when the decision is actually made.",
+        "The fix isn't more process. It's two structural changes. The first: before UAT regression starts, QA compares the release plan against what's actually in the branch. Any mismatch gets resolved before regression begins. This sounds obvious. It almost never happens without a defined owner and a defined step. Skip it and you're running regression against an incomplete picture, discovering mid-cycle that the scope was wrong.",
+        "The second: go/no-go ownership. One named person issues the verdict - outstanding bugs, pass or fail, a record of the call. Nothing deploys without it. This eliminates the pattern where everyone kind of agrees it's probably fine and nobody owns that agreement. When something goes wrong post-release, the question becomes 'what did the go/no-go see, and what was the call?' instead of 'how did this slip through?' That's a healthier conversation.",
+      ],
+    },
+  },
+  {
+    title: "The Scope Gap Is a QA Problem",
+    summary:
+      "When declared scope doesn't match what's in the release branch, QA tests an incomplete picture. The fix is upstream - not more QA effort downstream.",
+    icon: GitMerge,
+    metric: { value: "22", label: "Days Invisible" },
+    article: {
+      intro:
+        "QA tests what it knows is in scope. When the declared scope doesn't match what's in the release branch, QA tests an incomplete picture. That's not a testing failure. It's a scope visibility failure. The fix belongs upstream.",
+      paragraphs: [
+        "At a SaaS platform, a ticket's code entered the release branch 22 days before QA was told it was in scope. The release plan was built from a Jira metadata field. That field hadn't been updated to reflect the branch. The code moved through UAT without appearing on the plan QA was testing against. QA greenlighted the release. The issue surfaced after go/no-go. Regression ran twice more - once after the missing ticket was identified, and once after the decision to revert it entirely.",
+        "This looks like a QA miss from the outside. It isn't. QA runs risk-based testing against declared scope - not an exhaustive audit of every feature, role, tier, locale, and platform combination. At SaaS scale, exhaustive testing per release isn't the model. The model is: test what's in scope, thoroughly, against a known environment. When scope is wrong, the model breaks at the input, not the execution.",
+        "The fix is two lightweight checkpoints. Before the release plan meeting, a coordinator pulls the actual commits in the branch and compares against metadata scope. Mismatches go on the agenda before the meeting, not after. Before UAT greenlight, QA runs the same comparison to catch anything that entered mid-cycle. Neither requires new tooling. Both require ownership.",
+        "QA's analytical thinking isn't bounded to test case design. A QA engineer who traces a root cause through version control and ticket history, identifies the gap between two documentation systems, and proposes two checkpoints with named owners is doing QA work. The output isn't a test suite. The outcome is a release process less likely to ship invisible scope to production.",
+      ],
+    },
   },
 ];
 
@@ -600,7 +657,7 @@ const Projects = () => {
     useState<ProjectCardProps | null>(null);
 
   const handleClick = (project: ProjectCardProps) => {
-    if (!project.placeholder && project.whatItDoes?.length) {
+    if (!project.placeholder && (project.whatItDoes?.length || project.article)) {
       setSelectedProject(project);
     }
   };
@@ -663,6 +720,32 @@ const Projects = () => {
                   <ArrowRight className="h-4 w-4" />
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* ── Live Builds ── */}
+          <div className="mb-20 animate-fade-in-up">
+            <SectionHeader
+              title="Live Builds"
+              description="Web applications I designed and deployed end-to-end"
+            />
+            <div className="grid md:grid-cols-2 gap-6">
+              {liveBuilds.map((project, i) => (
+                <div
+                  key={project.title}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <ProjectCard
+                    {...project}
+                    onClick={
+                      project.whatItDoes?.length
+                        ? () => handleClick(project)
+                        : undefined
+                    }
+                  />
+                </div>
+              ))}
             </div>
           </div>
 
@@ -760,8 +843,8 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Modal */}
-      {selectedProject && (
+      {/* Project detail modal */}
+      {selectedProject && !selectedProject.article && (
         <ProjectDetailModal
           open={!!selectedProject}
           onOpenChange={(open) => {
@@ -770,10 +853,23 @@ const Projects = () => {
           title={selectedProject.title}
           tech={selectedProject.tech}
           repoUrl={selectedProject.repoUrl}
+          liveUrl={selectedProject.liveUrl}
           highlightLabel={selectedProject.highlightLabel}
           diagram={selectedProject.diagram}
           whatItDoes={selectedProject.whatItDoes ?? []}
           whatItAchieves={selectedProject.whatItAchieves ?? []}
+        />
+      )}
+
+      {/* Article modal */}
+      {selectedProject?.article && (
+        <ArticleModal
+          open={!!selectedProject}
+          onOpenChange={(open) => {
+            if (!open) setSelectedProject(null);
+          }}
+          title={selectedProject.title}
+          article={selectedProject.article}
         />
       )}
     </Layout>

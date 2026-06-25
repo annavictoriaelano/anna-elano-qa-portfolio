@@ -10,7 +10,7 @@ const skillCategories = [
   },
   {
     title: "AI Tooling",
-    skills: ["Claude Code", "Claude Web", "AI-augmented QA workflows", "Prompt Engineering", "Claude Skills authoring", "MCP integration"],
+    skills: ["Claude Code", "Claude Web", "AI-augmented QA workflows", "Prompt Engineering", "Claude Skills authoring", "MCP integration", "AI architecture pipeline design"],
   },
   {
     title: "Test Management",
@@ -30,7 +30,7 @@ const skillCategories = [
   },
   {
     title: "Methodologies",
-    skills: ["Agile / Scrum", "BDD / Gherkin", "Shift-Left Testing", "Full SDLC", "Swarms AI project methodology"],
+    skills: ["Agile / Scrum", "BDD / Gherkin", "Shift-Left Testing", "Full SDLC", "AI Swarms"],
   },
 ];
 
@@ -68,7 +68,7 @@ const About = () => {
                 raises the stakes higher, thorough and consistent quality engineering matters further.
               </p>
               <p>
-                Over 4+ years across mobile and web platforms, I've built and owned end-to-end test
+                5+ years across mobile and web platforms, I've built and owned end-to-end test
                 automation for a React Native app and a web SaaS platform. In under three months I
                 authored 2,500+ test cases across 11 modules for a system with eight subscription
                 tiers, multiple user roles, and three locales. I also designed the AI-augmented QA

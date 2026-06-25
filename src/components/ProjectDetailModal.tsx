@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ArrowRight, CheckCircle2, Github } from "lucide-react";
+import { ArrowRight, CheckCircle2, Github, ExternalLink } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -15,6 +15,7 @@ interface ProjectDetailModalProps {
   title: string;
   tech?: string;
   repoUrl?: string;
+  liveUrl?: string;
   highlightLabel?: string;
   diagram?: ReactNode;
   whatItDoes: string[];
@@ -36,6 +37,7 @@ export function ProjectDetailModal({
   title,
   tech,
   repoUrl,
+  liveUrl,
   highlightLabel,
   diagram,
   whatItDoes,
@@ -47,17 +49,30 @@ export function ProjectDetailModal({
         <DialogHeader className="px-8 pt-8 pb-6 border-b">
           <div className="flex items-start justify-between gap-4">
             <DialogTitle className="text-3xl font-bold">{title}</DialogTitle>
-            {repoUrl && (
-              <a
-                href={repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors shrink-0 mt-2"
-              >
-                <Github className="h-4 w-4" />
-                View repository
-              </a>
-            )}
+            <div className="flex items-center gap-4 shrink-0 mt-2">
+              {liveUrl && (
+                <a
+                  href={liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  Live app
+                </a>
+              )}
+              {repoUrl && (
+                <a
+                  href={repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Github className="h-4 w-4" />
+                  View repository
+                </a>
+              )}
+            </div>
           </div>
           {tech && (
             <DialogDescription asChild>
